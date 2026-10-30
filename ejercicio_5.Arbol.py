@@ -12,7 +12,6 @@ class ArbolMCU(BinaryTree):
         self.insert_node(nombre, {'is_villain': es_villano})
 
     # b. villanos ordenados alfabéticamente (inorden).
-    # La versión de tree.py define la función interna pero nunca la llama, por eso no imprime nada.
     def inorden_villain(self):
         def recorrer(root):
             if root is not None:
