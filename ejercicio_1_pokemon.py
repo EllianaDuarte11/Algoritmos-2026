@@ -1,4 +1,4 @@
-from arbol_base import ArbolBase      # el árbol AVL de tree.py (sin el texto de prueba que imprime)
+from arbol_base import ArbolBase      
 from pokemon_data import pokemons     # lista con los datos de los Pokémons
 
 
@@ -14,9 +14,9 @@ for poke in pokemons:
     arbol_numeros.insert_node(poke['numero'], poke)
     for tipo in poke['tipos']:
         nodo = arbol_tipos.search(tipo)
-        if nodo is None:                                  # primer Pokémon de ese tipo
+        if nodo is None:                                  
             arbol_tipos.insert_node(tipo, [poke['nombre']])
-        else:                                             # el tipo ya está en el árbol
+        else:                                           
             nodo.other_values.append(poke['nombre'])
 
 
