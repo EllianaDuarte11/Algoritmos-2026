@@ -4,8 +4,8 @@ from math import inf
 
 # graph.py ejecuta código de prueba cuando se importa (imprime cosas), por eso se silencia
 with contextlib.redirect_stdout(io.StringIO()):
-    from graph import Graph          # el grafo del profe
-from heap import HeapMin             # el heap del profe
+    from graph import Graph          
+from heap import HeapMin            
 
 
 # ---------------------------------------------------------------
@@ -52,11 +52,9 @@ def tipo_de(red, nombre):
 
 
 def camino_mas_corto(red, origen, destino):
-    # Dijkstra con el heap del profe. Se hace acá y no con red.dijkstra() porque ese método cambia el costo
-    # a mano y después llama a change_priority, que ya no encuentra diferencia y no reordena el heap:
-    # los costos pueden dar inf o resultados incorrectos.
-    distancia = {}                                # menor costo conocido desde el origen a cada equipo
-    anterior = {}                                 # de qué equipo se llega a cada uno por el camino más corto
+
+    distancia = {}                                
+    anterior = {}                                
     for vertice in red:
         distancia[vertice.value] = inf
         anterior[vertice.value] = None
@@ -86,7 +84,7 @@ def camino_mas_corto(red, origen, destino):
 
 
 def resolver_b(red):
-    # barridos del profe: deep_show (profundidad) y amplitude_show (amplitud)
+  
     for notebook in ['Red Hat', 'Debian', 'Arch']:
         print('\nBarrido en profundidad desde', notebook)
         red.deep_show(notebook)
@@ -155,7 +153,7 @@ print(mejor_equipo, ':', ' -> '.join(mejor_camino), '| costo:', mejor_costo)
 
 print('\n--- g. La impresora pasa al Router 2: se resuelve de nuevo ---')
 red.delete_edge('Switch 1', 'Impresora')
-red.add_edge(22, 'Router 2', 'Impresora')                # el enunciado no da el peso, se usa el mismo (22)
+red.add_edge(22, 'Router 2', 'Impresora')                
 print('\nPunto b:')
 resolver_b(red)
 print('\nPunto c:')
